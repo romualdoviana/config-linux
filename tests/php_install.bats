@@ -28,3 +28,12 @@ setup() {
   [ "$status" -eq 0 ]
   [ "$output" -eq 1 ]
 }
+
+@test "Ubuntu 26.04 (resolute) usa fallback noble na PPA quando a suíte resolute não existe" {
+  PHP_OS_RELEASE_FILE="${FIXTURES_DIR}/os-release-26.04" install_php_version "8.2"
+
+  run grep "^add-apt-repository" "${FAKE_CMD_LOG}"
+  [ "$status" -eq 0 ]
+  [[ "$output" == *"/dists/noble"* ]]
+  [[ "$output" == *" noble main"* ]]
+}

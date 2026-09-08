@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Stub de curl pros testes: simula o estado real da PPA ondrej/php, que hoje
+# só publica pacotes até a suíte "noble" (24.04).
+echo "curl $*" >> "${FAKE_CMD_LOG}"
+
+case "$*" in
+  *"/dists/noble/Release"*)
+    exit 0
+    ;;
+  *)
+    exit 22
+    ;;
+esac
