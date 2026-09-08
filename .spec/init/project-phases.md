@@ -141,7 +141,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 5.1: Instalação
 
-- [ ] **Task:** `install/claude-code.sh` instala a última versão do Claude Code CLI pelo método oficial de instalação, sourcing `lib/common.sh`, `lib/idempotent.sh`
+- [x] **Task:** `install/claude-code.sh` instala a última versão do Claude Code CLI pelo método oficial de instalação, sourcing `lib/common.sh`, `lib/idempotent.sh`
   - **Acceptance criteria:**
     - `claude --version` funciona após a instalação.
     - Rodar duas vezes seguidas não reinstala se o binário já está presente.
@@ -151,7 +151,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 5.2: Login manual pendente
 
-- [ ] **Task:** depois de instalar, o módulo imprime a instrução exata (`claude login`) e registra um marker de "login pendente" (ex.: `~/.config/config-linux/pending-logins/claude`) sem travar esperando input interativo
+- [x] **Task:** depois de instalar, o módulo imprime a instrução exata (`claude login`) e registra um marker de "login pendente" (ex.: `~/.config/config-linux/pending-logins/claude`) sem travar esperando input interativo
   - **Acceptance criteria:**
     - O script nunca lê nem copia `.credentials.json`/`auth.json` do repo pra máquina de destino.
     - Módulo termina com sucesso mesmo sem o login ter sido feito.
