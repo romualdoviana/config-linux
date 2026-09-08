@@ -242,7 +242,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 9.1: `.gitignore` cobrindo toda config sensível
 
-- [ ] **Task:** criar `.gitignore` na raiz do repositório listando todo padrão do Key Concept "Config sensível" (`*.credentials.json`, `auth.json`, `history.jsonl`, `sessions/`, `session-env/`, `cache/`, `*.sqlite*`, `logs/`) de forma que qualquer cópia acidental de uma árvore real de `~/.claude`/`~/.codex` pro repo não consiga ser staged
+- [x] **Task:** criar `.gitignore` na raiz do repositório listando todo padrão do Key Concept "Config sensível" (`*.credentials.json`, `auth.json`, `history.jsonl`, `sessions/`, `session-env/`, `cache/`, `*.sqlite*`, `logs/`) de forma que qualquer cópia acidental de uma árvore real de `~/.claude`/`~/.codex` pro repo não consiga ser staged
   - **Acceptance criteria:**
     - `git check-ignore` retorna "ignorado" pra um arquivo de exemplo de cada padrão sensível listado.
     - `git check-ignore` **não** ignora um arquivo de exemplo de config replicável (ex.: `settings.json`, `CLAUDE.md`).
@@ -251,7 +251,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 9.2: Documentação do fluxo de curadoria
 
-- [ ] **Task:** seção no `README.md` "Como levar uma config nova pro repo" descrevendo o Workflow 3 do `project-description.md`: copiar o trecho pro arquivo versionado certo (`dotfiles/bashrc_aliases`, configs de `.claude`/`.codex`), revisar visualmente antes do commit que nada sensível/pessoal entrou, e então commit + push pro remoto privado
+- [x] **Task:** seção no `README.md` "Como levar uma config nova pro repo" descrevendo o Workflow 3 do `project-description.md`: copiar o trecho pro arquivo versionado certo (`dotfiles/bashrc_aliases`, configs de `.claude`/`.codex`), revisar visualmente antes do commit que nada sensível/pessoal entrou, e então commit + push pro remoto privado
   - **Acceptance criteria:**
     - Seção existe no `README.md` e referencia os caminhos reais do repositório (`dotfiles/bashrc_aliases`, etc.).
     - Seção menciona explicitamente o passo de revisão antes do commit.

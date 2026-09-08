@@ -1,0 +1,9 @@
+# Config sensível — nunca versionar (ver .spec/init/project-description.md, Key Concept "Config sensível")
+*.credentials.json
+auth.json
+history.jsonl
+sessions/
+session-env/
+cache/
+*.sqlite*
+logs/
