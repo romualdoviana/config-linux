@@ -124,7 +124,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 4.1: Instalação do Docker Engine + Compose
 
-- [ ] **Task:** `install/docker.sh` adiciona o repositório oficial do Docker resolvido pelo codename detectado, instala `docker-ce docker-ce-cli containerd.io docker-compose-plugin`, e adiciona `$USER` (detectado em runtime, nunca hardcoded) ao grupo `docker`
+- [x] **Task:** `install/docker.sh` adiciona o repositório oficial do Docker resolvido pelo codename detectado, instala `docker-ce docker-ce-cli containerd.io docker-compose-plugin`, e adiciona `$USER` (detectado em runtime, nunca hardcoded) ao grupo `docker`
   - **Acceptance criteria:**
     - `docker --version` e `docker compose version` funcionam após a instalação.
     - `$USER` (o usuário que rodou o script, não um nome fixo) é adicionado ao grupo `docker`.
