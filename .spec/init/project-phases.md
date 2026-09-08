@@ -66,7 +66,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 2.1: Matriz de versões e extensões
 
-- [ ] **Task:** em `install/php.sh`, declarar a lista de versões alvo (`8.2 8.3 8.4 8.5`) e, pra cada uma, a lista exata de pacotes de extensão a instalar: 8.2 → `bz2 curl gd imagick intl mbstring mysql opcache readline xml zip` (+ `cli fpm common`); 8.3 → `bcmath bz2 curl intl mbstring mysql opcache readline xml zip` (+ `cli fpm common`); 8.4 → `bcmath curl intl mbstring mysql opcache pgsql readline sqlite3 xml zip` (+ `cli fpm common`); 8.5 → só `cli fpm common` (sem referência local ainda)
+- [x] **Task:** em `install/php.sh`, declarar a lista de versões alvo (`8.2 8.3 8.4 8.5`) e, pra cada uma, a lista exata de pacotes de extensão a instalar: 8.2 → `bz2 curl gd imagick intl mbstring mysql opcache readline xml zip` (+ `cli fpm common`); 8.3 → `bcmath bz2 curl intl mbstring mysql opcache readline xml zip` (+ `cli fpm common`); 8.4 → `bcmath curl intl mbstring mysql opcache pgsql readline sqlite3 xml zip` (+ `cli fpm common`); 8.5 → só `cli fpm common` (sem referência local ainda)
   - **Acceptance criteria:**
     - A lista de pacotes por versão bate exatamente com o Key Concept "Extensões por versão" do `project-description.md` — nenhuma extensão a mais, nenhuma a menos.
     - `php8.2-xdebug` não aparece em nenhuma lista (xdebug é sempre manual, ver Phase 2.4).
@@ -76,7 +76,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 2.2: Instalação e `update-alternatives`
 
-- [ ] **Task:** função `install_php_version(version)` que garante a PPA `ondrej/php` adicionada (via `resolve_php_ppa_url` da Fase 1.3), roda `apt-get install` com a lista de pacotes da versão (Fase 2.1), e ajusta `update-alternatives --install`/`--set` pro binário `php` conforme a versão mais recente instalada
+- [x] **Task:** função `install_php_version(version)` que garante a PPA `ondrej/php` adicionada (via `resolve_php_ppa_url` da Fase 1.3), roda `apt-get install` com a lista de pacotes da versão (Fase 2.1), e ajusta `update-alternatives --install`/`--set` pro binário `php` conforme a versão mais recente instalada
   - **Acceptance criteria:**
     - Rodar `install_php_version 8.4` numa máquina limpa deixa `php -v` reportando 8.4 (ou a versão mais recente instalada, se mais de uma).
     - PPA é adicionada uma única vez mesmo se `install_php_version` for chamada pra várias versões na mesma execução.
@@ -85,7 +85,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 2.3: Idempotência e execução standalone
 
-- [ ] **Task:** `install/php.sh` faz `source lib/common.sh lib/os-detect.sh lib/idempotent.sh`, itera as versões alvo pulando (via `is_already_done`) a combinação versão+extensões já satisfeita, e é executável tanto standalone (`./install/php.sh`) quanto chamado de dentro de `install.sh`
+- [x] **Task:** `install/php.sh` faz `source lib/common.sh lib/os-detect.sh lib/idempotent.sh`, itera as versões alvo pulando (via `is_already_done`) a combinação versão+extensões já satisfeita, e é executável tanto standalone (`./install/php.sh`) quanto chamado de dentro de `install.sh`
   - **Acceptance criteria:**
     - Rodar `./install/php.sh` duas vezes seguidas na mesma máquina não chama `apt-get install` de novo pra uma versão já instalada com o conjunto de extensões esperado.
     - Rodar `./install/php.sh` isoladamente (sem passar por `install.sh`) produz o mesmo resultado que rodar dentro do fluxo completo.
@@ -94,7 +94,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 2.4: Xdebug fica manual
 
-- [ ] **Task:** garantir que `install/php.sh` nunca instala `php<versão>-xdebug` por padrão, e documentar no `README.md` uma seção "Debug (xdebug) — manual" com o comando exato (`sudo apt install php<versão>-xdebug`) pra quando o desenvolvedor precisar debugar
+- [x] **Task:** garantir que `install/php.sh` nunca instala `php<versão>-xdebug` por padrão, e documentar no `README.md` uma seção "Debug (xdebug) — manual" com o comando exato (`sudo apt install php<versão>-xdebug`) pra quando o desenvolvedor precisar debugar
   - **Acceptance criteria:**
     - `grep -r xdebug install/php.sh` não encontra nenhuma instalação automática (só pode aparecer, se aparecer, em comentário/doc).
     - `README.md` tem a seção "Debug (xdebug) — manual" com o comando de instalação manual.

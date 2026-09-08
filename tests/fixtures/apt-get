@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo "apt-get $*" >> "${FAKE_CMD_LOG}"
