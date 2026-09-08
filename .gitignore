@@ -7,3 +7,4 @@ session-env/
 cache/
 *.sqlite*
 logs/
+.spec/
