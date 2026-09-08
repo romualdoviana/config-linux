@@ -192,7 +192,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 7.1: Dotfiles (`.bashrc`, `.bashrc_aliases`)
 
-- [ ] **Task:** `install/dotfiles.sh` copia `dotfiles/bashrc_aliases` versionado pra `~/.bashrc_aliases` do usuário de destino, e garante (idempotentemente) uma linha `source ~/.bashrc_aliases` no `~/.bashrc`, sem duplicar a linha se rodado de novo
+- [x] **Task:** `install/dotfiles.sh` copia `dotfiles/bashrc_aliases` versionado pra `~/.bashrc_aliases` do usuário de destino, e garante (idempotentemente) uma linha `source ~/.bashrc_aliases` no `~/.bashrc`, sem duplicar a linha se rodado de novo
   - **Acceptance criteria:**
     - Depois de rodar, `~/.bashrc_aliases` existe com o conteúdo versionado.
     - `~/.bashrc` contém exatamente uma linha `source ~/.bashrc_aliases` mesmo depois de rodar o módulo várias vezes.
@@ -201,7 +201,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 7.2: Config replicável de `.claude`/`.codex` (nunca sensível)
 
-- [ ] **Task:** `install/dotfiles.sh` (ou módulo dedicado `install/ai-config.sh`) copia só o allow-list de "config replicável" (`settings.json` sem segredo, `skills/`, `agents/`, `commands/`, `hooks/`, `CLAUDE.md`, `AGENTS.md`) de dentro do repo pra `~/.claude` e `~/.codex`, com um exclude-list explícito cobrindo tudo que é "config sensível" (`.credentials.json`, `auth.json`, `history.jsonl`, `sessions/`, `session-env/`, cache, `*.sqlite*`, logs)
+- [x] **Task:** `install/dotfiles.sh` (ou módulo dedicado `install/ai-config.sh`) copia só o allow-list de "config replicável" (`settings.json` sem segredo, `skills/`, `agents/`, `commands/`, `hooks/`, `CLAUDE.md`, `AGENTS.md`) de dentro do repo pra `~/.claude` e `~/.codex`, com um exclude-list explícito cobrindo tudo que é "config sensível" (`.credentials.json`, `auth.json`, `history.jsonl`, `sessions/`, `session-env/`, cache, `*.sqlite*`, logs)
   - **Acceptance criteria:**
     - Função `copy_replicable_config(src, dest)` só copia caminhos presentes no allow-list; qualquer arquivo/pasta no exclude-list nunca é copiado, mesmo que esteja fisicamente presente na origem.
     - `shellcheck` passa no módulo.

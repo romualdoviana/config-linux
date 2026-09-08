@@ -1,0 +1,6 @@
+# shellcheck shell=bash
+# Aliases e functions customizados — versionado em config-linux.
+
+alias ll='ls -lah'
+alias gs='git status'
+alias gp='git pull'
