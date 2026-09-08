@@ -108,7 +108,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 3.1: Instalação do Node
 
-- [ ] **Task:** `install/node.sh` adiciona o repositório oficial NodeSource resolvido pelo codename detectado (Fase 1.3) e instala o pacote `nodejs` (última versão disponível no repositório), sourcing `lib/common.sh`, `lib/os-detect.sh`, `lib/idempotent.sh`
+- [x] **Task:** `install/node.sh` adiciona o repositório oficial NodeSource resolvido pelo codename detectado (Fase 1.3) e instala o pacote `nodejs` (última versão disponível no repositório), sourcing `lib/common.sh`, `lib/os-detect.sh`, `lib/idempotent.sh`
   - **Acceptance criteria:**
     - Depois de rodar, `node -v` e `npm -v` funcionam.
     - Rodar `./install/node.sh` duas vezes seguidas não reinstala se `node`/`npm` já estão presentes (idempotência via `lib/idempotent.sh`).
