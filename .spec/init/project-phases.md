@@ -218,7 +218,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 8.1: Gate de distro e execução em ordem
 
-- [ ] **Task:** `install.sh` faz `source lib/common.sh lib/os-detect.sh`, checa `is_supported_codename` **antes** de qualquer instalação (aborta com mensagem clara se não suportado), e então chama, nesta ordem, `install/php.sh` → `install/node.sh` → `install/docker.sh` → `install/claude-code.sh` → `install/codex.sh` → `install/dotfiles.sh`, abortando imediatamente (via o trap de erro da Fase 1.2) se qualquer um retornar erro
+- [x] **Task:** `install.sh` faz `source lib/common.sh lib/os-detect.sh`, checa `is_supported_codename` **antes** de qualquer instalação (aborta com mensagem clara se não suportado), e então chama, nesta ordem, `install/php.sh` → `install/node.sh` → `install/docker.sh` → `install/claude-code.sh` → `install/codex.sh` → `install/dotfiles.sh`, abortando imediatamente (via o trap de erro da Fase 1.2) se qualquer um retornar erro
   - **Acceptance criteria:**
     - Numa fixture de codename não suportado, `install.sh` sai com erro antes de chamar qualquer módulo.
     - Numa fixture de codename suportado, os módulos são chamados exatamente na ordem especificada.
@@ -227,7 +227,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 8.2: Resumo final
 
-- [ ] **Task:** `install.sh` acumula, por módulo, o status (`instalado` / `já estava instalado — pulado` / `falhou`) e, ao final, imprime um resumo consolidado incluindo a lista de logins pendentes coletados dos markers criados nas Fases 5.2 e 6.2
+- [x] **Task:** `install.sh` acumula, por módulo, o status (`instalado` / `já estava instalado — pulado` / `falhou`) e, ao final, imprime um resumo consolidado incluindo a lista de logins pendentes coletados dos markers criados nas Fases 5.2 e 6.2
   - **Acceptance criteria:**
     - Resumo final lista o status de cada um dos 6 módulos.
     - Se houver marker de login pendente pra `claude` e/ou `codex`, o resumo lista exatamente essas ferramentas como pendentes; se não houver nenhum marker, a seção de pendências fica vazia/ausente.
