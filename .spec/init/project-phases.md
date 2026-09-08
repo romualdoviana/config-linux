@@ -167,7 +167,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 6.1: Instalação
 
-- [ ] **Task:** `install/codex.sh` instala a última versão do Codex CLI pelo método oficial de instalação, sourcing `lib/common.sh`, `lib/idempotent.sh`
+- [x] **Task:** `install/codex.sh` instala a última versão do Codex CLI pelo método oficial de instalação, sourcing `lib/common.sh`, `lib/idempotent.sh`
   - **Acceptance criteria:**
     - `codex --version` funciona após a instalação.
     - Rodar duas vezes seguidas não reinstala se o binário já está presente.
@@ -177,7 +177,7 @@ Lógica com ramificação real (resolução de codename→PPA, seleção de exte
 
 ### Phase 6.2: Login manual pendente
 
-- [ ] **Task:** mesmo padrão da Fase 5.2, com `codex login` e marker `~/.config/config-linux/pending-logins/codex`
+- [x] **Task:** mesmo padrão da Fase 5.2, com `codex login` e marker `~/.config/config-linux/pending-logins/codex`
   - **Acceptance criteria:**
     - O script nunca lê nem copia `auth.json`/`config.toml` com segredo do repo pra máquina de destino.
     - Marker de "login pendente" pra `codex` é criado uma única vez mesmo rodando o módulo várias vezes.
