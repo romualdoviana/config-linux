@@ -34,6 +34,6 @@ setup() {
 
   run grep "^add-apt-repository" "${FAKE_CMD_LOG}"
   [ "$status" -eq 0 ]
-  [[ "$output" == *"/dists/noble"* ]]
-  [[ "$output" == *" noble main"* ]]
+  [[ "$output" != *"/dists/"* ]]
+  [[ "$output" == *"ubuntu noble main"* ]]
 }

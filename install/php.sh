@@ -68,7 +68,7 @@ _ensure_php_ppa() {
   ppa_codename="$(resolve_php_ppa_codename "${codename}")"
 
   local ppa_url
-  ppa_url="$(resolve_php_ppa_url "${ppa_codename}")"
+  ppa_url="$(resolve_php_ppa_url)"
 
   log_info "adicionando PPA ondrej/php (${ppa_url})"
   add-apt-repository -y "deb ${ppa_url} ${ppa_codename} main"

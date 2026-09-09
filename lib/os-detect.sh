@@ -36,8 +36,7 @@ is_supported_codename() {
 }
 
 resolve_php_ppa_url() {
-  local codename="${1:-}"
-  echo "https://ppa.launchpadcontent.net/ondrej/php/ubuntu/dists/${codename}"
+  echo "https://ppa.launchpadcontent.net/ondrej/php/ubuntu"
 }
 
 # Fallback usado quando a PPA ondrej/php ainda não publicou pacotes pro
@@ -47,7 +46,7 @@ PHP_PPA_FALLBACK_CODENAME="noble"
 
 php_ppa_has_suite() {
   local codename="${1:-}"
-  curl -fsSL -o /dev/null "$(resolve_php_ppa_url "${codename}")/Release"
+  curl -fsSL -o /dev/null "$(resolve_php_ppa_url)/dists/${codename}/Release"
 }
 
 resolve_php_ppa_codename() {

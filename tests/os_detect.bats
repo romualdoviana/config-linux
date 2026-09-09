@@ -19,8 +19,8 @@ setup() {
   run is_supported_codename "${codename}"
   [ "$status" -eq 0 ]
 
-  run resolve_php_ppa_url "${codename}"
-  [ "$output" = "https://ppa.launchpadcontent.net/ondrej/php/ubuntu/dists/noble" ]
+  run resolve_php_ppa_url
+  [ "$output" = "https://ppa.launchpadcontent.net/ondrej/php/ubuntu" ]
 }
 
 @test "detecta e suporta codename resolute (26.04)" {
@@ -30,8 +30,8 @@ setup() {
   run is_supported_codename "${codename}"
   [ "$status" -eq 0 ]
 
-  run resolve_php_ppa_url "${codename}"
-  [ "$output" = "https://ppa.launchpadcontent.net/ondrej/php/ubuntu/dists/resolute" ]
+  run resolve_php_ppa_url
+  [ "$output" = "https://ppa.launchpadcontent.net/ondrej/php/ubuntu" ]
 }
 
 @test "Ubuntu não suportado (22.04/jammy) retorna falso" {
