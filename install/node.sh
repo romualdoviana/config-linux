@@ -26,7 +26,24 @@ resolve_nodesource_repo_url() {
   echo "https://deb.nodesource.com/node_current.x"
 }
 
+_ensure_node_dependencies() {
+  local missing=()
+  local cmd
+
+  for cmd in curl gpg; do
+    command -v "${cmd}" &>/dev/null || missing+=("${cmd}")
+  done
+
+  if ((${#missing[@]} > 0)); then
+    log_info "instalando dependências: ${missing[*]}"
+    apt-get update
+    apt-get install -y ca-certificates curl gnupg
+  fi
+}
+
 _ensure_nodesource_repo() {
+  _ensure_node_dependencies
+
   local codename
   codename="$(detect_ubuntu_codename "${NODE_OS_RELEASE_FILE}")"
 
